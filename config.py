@@ -7,7 +7,7 @@ load_dotenv()
 class Settings:
 
     def __init__(self):
-        self._zip_url = os.getenv("ZIP_URL")
+        self._zip_url = "https://www2.census.gov/pub/outgoing/govs/singleaudit/allfac.zip"
         self._output_dir = os.getenv("OUTPUT_DIR")
         self._zip_file = os.getenv("ZIP_FILE")
         self._zip_dir = os.getenv("ZIP_DIR")

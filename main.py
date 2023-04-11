@@ -3,6 +3,7 @@ import os.path
 import shutil
 from config import Settings
 from zipfile import ZipFile
+from parsers import *
 
 settings = Settings()
 
@@ -14,8 +15,7 @@ def extract_files():
 
 
 def download_file():
-    #urllib.request.urlretrieve(settings.get_zip_url(),
-    #                           os.path.join(settings.get_output_dir(), settings.get_zip_file()))
+
     zipfile = urllib.request.urlopen(settings.get_zip_url())
     with open(os.path.join(settings.get_output_dir(), settings.get_zip_file()), 'wb') as output:
         output.write(zipfile.read())
@@ -30,6 +30,9 @@ def clean_environment():
         shutil.rmtree(os.path.join(settings.get_output_dir(), settings.get_zip_dir()))
 
 
+def parseFiles():
+    GeneralParser().parse()
+
 if __name__ == '__main__':
 
     if settings.get_refresh_files() is True:
@@ -38,4 +41,7 @@ if __name__ == '__main__':
         download_file()
         extract_files()
 
+    parseFiles()
+
     print("complete")
+
