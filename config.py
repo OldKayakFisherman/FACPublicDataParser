@@ -12,6 +12,10 @@ class Settings:
         self._zip_file = os.getenv("ZIP_FILE")
         self._zip_dir = os.getenv("ZIP_DIR")
         self._refresh_files = os.getenv("REFRESH_FILES")
+        self._dsn = os.getenv("DSN")
+
+    def get_dsn(self) -> str:
+        return self._dsn
 
     def get_zip_url(self) -> str:
         return self._zip_url

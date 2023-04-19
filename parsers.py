@@ -21,4 +21,4 @@ class GeneralParser:
             rdr = csv.reader(csvfile, delimiter='|')
             for row in rdr:
                 print(row[0])
-
+        
