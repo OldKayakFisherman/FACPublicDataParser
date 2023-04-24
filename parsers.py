@@ -14,11 +14,14 @@ class GeneralParser:
     def parse(self):
 
         settings = Settings()
+        retval = []
 
         general_text = os.path.join(settings.get_output_dir(), 'general.txt')
 
         with open(general_text, encoding="windows-1252") as csvfile:
-            rdr = csv.reader(csvfile, delimiter='|')
+            rdr = csv.reader(csvfile, delimiter='|', )
+            next(rdr) # skip first row
             for row in rdr:
-                print(row[0])
+                retval.append(row)
         
+        return retval

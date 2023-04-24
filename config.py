@@ -1,4 +1,6 @@
 import os
+from distutils.util import strtobool
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -30,4 +32,4 @@ class Settings:
         return self._zip_dir
 
     def get_refresh_files(self) -> bool:
-        return self._refresh_files
+        return strtobool(self._refresh_files)

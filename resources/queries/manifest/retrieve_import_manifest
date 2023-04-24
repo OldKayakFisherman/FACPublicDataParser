@@ -1,0 +1,3 @@
+SELECT *
+FROM fac_import_manifest
+WHERE dbkey = ?dbkey? and audityear = ?audityear?

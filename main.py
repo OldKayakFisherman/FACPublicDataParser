@@ -4,6 +4,7 @@ import shutil
 from config import Settings
 from zipfile import ZipFile
 from parsers import *
+from data import DataImport
 
 settings = Settings()
 
@@ -31,11 +32,13 @@ def clean_environment():
 
 
 def parseFiles():
-    GeneralParser().parse()
+    general_records = GeneralParser().parse()
+    DataImport().import_general(general_records)
 
 if __name__ == '__main__':
 
-    if settings.get_refresh_files() is True:
+
+    if settings.get_refresh_files():
         print("refreshing files")
         clean_environment()
         download_file()

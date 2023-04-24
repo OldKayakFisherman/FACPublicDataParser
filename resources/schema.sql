@@ -70,11 +70,20 @@ CREATE TABLE import_general
 	entity_type text,
 	uei text,
 	multipleueis text,
+	date_imported timestamp default current_timestamp,
 	CONSTRAINT pk_import_general PRIMARY KEY ("id")
 
 );
 
-ALTER TABLE import_general OWNER TO facimportuser;
 
+create table fac_import_manifest
+(
+    id serial not null,
+    dbkey int,
+    audityear int,
+    datefirewall date,
+    previousdatefirewall date,
+    date_updated timestamp default current_timestamp
+);
 
 
