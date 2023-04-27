@@ -1,7 +1,6 @@
 from config import Settings;
 
 
-
 class AuditManifest:
     def get_dbkey(self):
         return self._dbkey
@@ -26,6 +25,7 @@ class DataManifestResolver:
         self._dsn = dsn
 
     def get_manifest_resolver(self, dbkey, audityear):
+        pass
         
 
 
